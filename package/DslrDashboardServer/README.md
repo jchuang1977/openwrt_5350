@@ -19,9 +19,9 @@ DslrDashboardServer
  
 ## Compile DslrDashboard Server on OpenWrt
  
- Clone the *DslrDashboardServer* repository to the *packages* directory on OpenWrt:
- 
- 	git clone git://github.com/hubaiz/DslrDashboardServer packages/DslrDashboardServer
+ Clone the *DslrDashboardServer* repository to the *package* directory on OpenWrt:
+     cd your_openwrt_trunk/package
+ 	git clone git://github.com/hubaiz/DslrDashboardServer DslrDashboardServer
  
  Run then the following commands:
  
@@ -34,11 +34,11 @@ DslrDashboardServer
  
  Switch to the *DslrDashboardServer/src* directory, and compile the source code:
  
- 	g++ -Wall main.cpp communicator.cpp -I/usr/include/libusb-1.0/ -L/usr/lib /usr/lib/i386-linux-gnu/libusb-1.0.a lpthread -lrt -lstdc++ -o ddserver
+ 	g++ -Wall main.cpp communicator.cpp -I/usr/include/libusb-1.0/ -L/usr/lib /usr/lib/i386-linux-gnu/libusb-1.0.a -lpthread -lrt -lstdc++ -o ddserver
 
 or on x64 systems
 
-	g++ -Wall main.cpp communicator.cpp -I/usr/include/libusb-1.0/ -L/usr/lib /usr/lib/x86_64-linux-gnu/libusb-1.0.a lpthread -lrt -lstdc++ -o ddserver
+	g++ -Wall main.cpp communicator.cpp -I/usr/include/libusb-1.0/ -L/usr/lib /usr/lib/x86_64-linux-gnu/libusb-1.0.a -lpthread -lrt -lstdc++ -o ddserver
 
 Make the resulting *ddserver* binary executable and launch the server:
 
